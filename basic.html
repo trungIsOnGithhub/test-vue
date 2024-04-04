@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trung Dep Trai</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Nguyen Viet Trung</a>
+
+            <ul class="navbar-nav mr-auto mb-lg-0">
+                <li v-for="link in nav_links" class="nav-item">
+                    <a class="nav-link" aria-current="page"
+                        :href="link.name">
+                        {{ `Gia ${link.price}` }}
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="main-content" class="container">
+        <h2>{{ pageTitle }}</h2>
+        <hr>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const fruits = [
+            {
+                price: 6.8,
+                name: 'Apple',
+            },
+            {
+                price: 6.9,
+                name: 'Lime',
+            },
+            {
+                price: 8.6,
+                name: 'Banana',
+            },
+        ];
+
+        Vue.createApp({
+            data : () => {
+                return {
+                    nav_links: fruits,
+                }
+            }
+        }).mount('#nav-bar');
+
+        Vue.createApp({
+            data() {
+                return {
+                    pageTitle: "Trung Dep Trai",
+                };
+            }
+        }).mount('#main-content');
+    </script>
+</body>
+
+</html>
